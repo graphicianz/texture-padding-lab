@@ -46,10 +46,6 @@ def uv_pad(img_rgba: np.ndarray) -> np.ndarray:
             out[y, x] = (rgb[iy, ix].astype(np.float32) * ratio_from_dist).astype(np.uint8)
 
 
-    # blur = cv2.GaussianBlur(out, (7, 7), 0)
-    # mask_pad = (alpha == 0) & (dist <= PAD_RADIUS)
-    # out[mask_pad] = blur[mask_pad]
-
     return np.dstack([out, np.full_like(alpha, 255)])
 
 # ===============================
